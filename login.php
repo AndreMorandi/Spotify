@@ -1,11 +1,22 @@
 <?php
 
-if(isset($_POST['loginButton'])) {
-	//LOG IN BUTTON was pressed
+	include("includes/handlers/config.php");
+	include("includes/classes/Account.php");
+	include("includes/classes/Constants.php");
 
-}
+	$account = new Account($con);
+
+	include("includes/handlers/register-handler.php");
+	include("includes/handlers/login-handler.php");
+
+	if(isset($_SESSION['userLoggedIn'])) {
+		header("Location: browse.php");
+	}
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,8 +53,9 @@ if(isset($_POST['loginButton'])) {
 						
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
-								<label for="loginEmail">Email</label>
-								<input class="form-control" type="email" name="loginEmail" id="loginEmail" placeholder="Enter your email" required></input>
+								<?php echo $account->getError(Constants::$loginFailed); ?>
+								<label for="loginUsername">Username</label>
+								<input class="form-control" type="text" name="loginUsername" id="loginUsername" placeholder="Enter your username" required></input>
 							</div>
 						</div>
 						
@@ -55,7 +67,7 @@ if(isset($_POST['loginButton'])) {
 						</div>
 						
 						<div class="row justify-content-center">
-							<button type="submit" class="btn btn-green btn-circle btn-custom col-8 col-md-5 mx-auto" id="loginButton">
+							<button type="submit" class="btn btn-green btn-circle btn-custom col-8 col-md-5 mx-auto" id="loginButton" name="loginButton">
 								Log in
 							</button>
 						</div>

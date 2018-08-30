@@ -1,9 +1,23 @@
 <?php
+	
+	include("includes/handlers/config.php");
+	include("includes/classes/Account.php");
+	include("includes/classes/Constants.php");
 
-if(isset($_POST['registerButton'])) {
-	//REGISTER BUTTON was pressed
-}
+	$account = new Account($con);
 
+	include("includes/handlers/register-handler.php");
+	include("includes/handlers/login-handler.php");
+
+	function getInputValue($name){
+		if(isset($_POST[$name])){
+			echo $_POST[$name];
+		}
+	}
+
+	if(isset($_SESSION['userLoggedIn'])) {
+		header("Location: browse.php");
+	}
 ?>
 
 
@@ -34,7 +48,7 @@ if(isset($_POST['registerButton'])) {
 			<div class="signup-header">
 				<div class="container">
 					<div class="content">
-						<span class="spotify-logo" href="#">Spotify</span>
+						<span class="spotify-logo">Spotify</span>
 					</div>
 				</div>
 			</div>
@@ -48,49 +62,74 @@ if(isset($_POST['registerButton'])) {
 					<form id="registerForm" action="register.php" method="POST">
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
-								<label for="username">Username</label>
-								<input class="form-control" type="text" name="username" id="username" placeholder="Your username" required></input>
+								<?php echo $account->getError(Constants::$usernameCharacters); ?>
+								<?php echo $account->getError(Constants::$usernameTaken); ?>
+								<label for="username">Username</label>						
+								<input class="form-control" type="text" name="username" id="username" placeholder="Your username" value="<?php getInputValue('username') ?>" required></input>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
+								<?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
+								<?php echo $account->getError(Constants::$emailInvalid); ?>
+								<?php echo $account->getError(Constants::$emailTaken); ?>
 								<label for="email">Email</label>
-								<input class="form-control" type="email" name="email" id="email" placeholder="Enter your email" required></input>
+								<input class="form-control" type="email" name="email" id="email" placeholder="Enter your email" value="<?php getInputValue('email') ?>" required></input>
+								
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
-								<label for="email2">Confirm Email</label>
-								<input class="form-control" type="email" name="email2" id="email2" placeholder="Confirm your email" required></input>
+								<label for="email2">Confirm email</label>
+								<input class="form-control" type="email" name="email2" id="email2" placeholder="Confirm your email"  required></input>
+								
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
+								<?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
+								<?php echo $account->getError(Constants::$passwordNotAlphaNumeric); ?>
+								<?php echo $account->getError(Constants::$passwordCharacters); ?>
 								<label for="password">Password</label>
 								<input class="form-control" type="password" name="password" id="password" placeholder="Enter your password" required></input>
+								
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
-								<label for="password2">Confirm Password</label>
+								<label for="password2">Confirm password</label>
 								<input class="form-control" type="password" name="password2" id="password2" placeholder="Confirm your password" required></input>
+								
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
-								<label for="firstName">First Name</label>
-								<input class="form-control" type="text" name="firstName" id="firstName" placeholder="What should we call you?" required></input>
+								<?php echo $account->getError(Constants::$firstNameCharacters); ?>
+								<?php echo $account->getError(Constants::$firstNameNotAlpha); ?>
+								<label for="firstName">First name</label>
+								<input class="form-control" type="text" name="firstName" id="firstName" placeholder="What should we call you?" value="<?php getInputValue('firstName') ?>" required></input>
+								
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-12 col-md-6 mx-auto">
+								<?php echo $account->getError(Constants::$lastNameCharacters); ?>
+								<?php echo $account->getError(Constants::$lastNameNotAlpha); ?>
+								<label for="lastName">Last name</label>
+								<input class="form-control" type="text" name="lastName" id="lastName" placeholder="Your last name" value="<?php getInputValue('lastName') ?>" required></input>
+								
 							</div>
 						</div>
 
 						<div class="row justify-content-center">
-							<button class="btn btn-green btn-circle btn-custom col-8 col-md-5 mx-auto" id="registerButton">
+							<button class="btn btn-green btn-circle btn-custom col-8 col-md-5 mx-auto" id="registerButton" name="registerButton">
 								Register
 							</button>
 						</div>
 						<div class="row justify-content-center mb-5">
-							<small><a href="login.php">Already have an accout yet? Click here.</a></small>
+							<small><a href="login.php">Already have an accout? Click here.</a></small>
 						</div>
 						
 
