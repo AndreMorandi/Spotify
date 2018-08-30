@@ -85,6 +85,10 @@ div {
 
 	}
 
+	.spotify-logo:hover {
+		cursor: pointer;
+	}
+
 
 /* ***     CENTER     *** */
 
@@ -143,3 +147,8 @@ div {
 }
 
 	
+
+.has-error {
+	color: red;
+	border: red;
+}
