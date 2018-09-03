@@ -10,6 +10,7 @@ else {
 	header("Location: login.php");
 }
 
+//include("includes/nowPlayingBar.php");
 
 ?>
 
@@ -19,6 +20,7 @@ else {
 <head>
 	<title>Browse - Spotify</title>
 	<link rel="icon" type="text/css" href="assets/images/icons/favicon.png">
+	<link rel="stylesheet" type="text/css" href="assets/css/browse.css">
 </head>
 <body>
 

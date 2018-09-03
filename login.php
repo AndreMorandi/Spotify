@@ -13,6 +13,12 @@
 		header("Location: browse.php");
 	}
 
+	function getInputValue($name){
+		if(isset($_POST[$name])){
+			echo $_POST[$name];
+		}
+	}
+
 ?>
 
 
@@ -55,7 +61,7 @@
 							<div class="form-group col-12 col-md-6 mx-auto">
 								<?php echo $account->getError(Constants::$loginFailed); ?>
 								<label for="loginUsername">Username</label>
-								<input class="form-control" type="text" name="loginUsername" id="loginUsername" placeholder="Enter your username" required></input>
+								<input class="form-control" type="text" name="loginUsername" id="loginUsername" placeholder="Enter your username" value="<?php getInputValue('loginUsername') ?>" required></input>
 							</div>
 						</div>
 						
