@@ -68,7 +68,7 @@
 						<div class="row">
 							<div class="form-group col-12 col-md-6 mx-auto">
 								<label for="loginPassword">Password</label>
-								<input class="form-control" type="password" name="loginPassword" id="loginPassword" placeholder="Enter your password" required></input>
+								<input class="form-control" type="password" name="loginPassword" id="loginPassword" placeholder="Enter your password" required>
 							</div>
 						</div>
 						
