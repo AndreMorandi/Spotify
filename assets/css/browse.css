@@ -1,0 +1,65 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+* {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+	box-sizing: border-box; 
+}
+
+body {
+	background-color: #232020;
+	font-size: 14px;
+	min-width: 720px;
+	display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0;
+}
+
+
+/*   NAV BAR   */
+
+.col-1 {
+	background: #69c7c4;
+	flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.col-2 {
+	display: flex;
+	flex-direction: column;
+	flex: 5;
+}
+.content {
+	display: flex;
+	flex-direction: row;
+}
+.content > article {
+	flex: 3;
+	min-height: 60vh;
+}
+header {
+	background: #1b9a96;
+	height: 30vh;
+}
+header, footer, article, nav {
+	padding: 1em;
+}
