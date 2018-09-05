@@ -22,26 +22,10 @@ body {
 }
 
 
-/*   NAV BAR   */
-
 .col-1 {
 	background: #69c7c4;
 	flex: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .col-2 {
 	display: flex;
@@ -49,7 +33,7 @@ body {
 	flex: 5;
 }
 .content {
-	display: flex;
+	//display: flex;
 	flex-direction: row;
 }
 .content > article {
@@ -58,8 +42,52 @@ body {
 }
 header {
 	background: #1b9a96;
-	height: 30vh;
+	height: 15vh;
 }
-header, footer, article, nav {
+header, article, nav {
 	padding: 1em;
+}
+
+
+
+
+
+/*   NOW PLAYING BAR   */
+
+#nowPlayingBarContainer {
+	width: 100%;
+	bottom: 0;
+	position: fixed;
+	min-width: 620px;
+	background-color: #282828;
+}
+
+.now-playing-bar-container {
+	border-top: 1px solid #000;
+}
+
+	.now-playing-bar-container,
+	#nowPlayingBar {
+		display: flex;
+	}
+
+#nowPlayingBar {
+	width: 100%;
+	height: 90px;
+	padding: 16px;
+	box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight {
+	width: 30%;
+	min-width: 180px;
+}
+
+#nowPlayingCenter {
+	width: 40%;
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

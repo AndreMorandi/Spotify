@@ -24,14 +24,37 @@ else {
 
 </head>
 <body>
+
 	<nav class="col-1">
 		Navegação
 	</nav>
+
 	<div class="col-2">
-	  	<header>Cabeçalho</header>
+	  	<header>
+	  		Cabeçalho
+	  	</header>
+
 	    <main class="content">
-	    <article>Conteúdo</article>
+		    <article>
+		    	Conteúdo
+		    </article>
 	    </main>
+	</div>
+
+	<div id="nowPlayingBarContainer">
+		<footer class="now-playing-bar-container">
+			<div id="nowPlayingBar">
+				<div id="nowPlayingLeft">
+					
+				</div>
+				<div id="nowPlayingCenter">
+					
+				</div>
+				<div id="nowPlayingRight">
+					
+				</div>
+			</div>
+		</footer>
 	</div>
 
 
