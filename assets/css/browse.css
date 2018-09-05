@@ -33,7 +33,7 @@ body {
 	flex: 5;
 }
 .content {
-	//display: flex;
+	display: flex;
 	flex-direction: row;
 }
 .content > article {
@@ -42,7 +42,7 @@ body {
 }
 header {
 	background: #1b9a96;
-	height: 15vh;
+	height: 15vh; /*TO DO: CHANGE VH TO PX*/
 }
 header, article, nav {
 	padding: 1em;
@@ -91,3 +91,35 @@ header, article, nav {
 	flex-direction: column;
 	align-items: center;
 }
+
+
+#nowPlayingBar .content {
+	width: 100%;
+}
+
+#nowPlayingBar .playerControls .buttons {
+	margin: 0 auto;
+	display: table;
+}
+
+.controlButton {
+	background-color: transparent;
+	border: none;
+	vertical-align: middle;
+}
+
+	.controlButton img {
+		width: 20px;
+		height: 20px;
+		min-width: 20px;
+	}
+
+		.controlButton.play img,
+		.controlButton.pause img {
+			width: 32px;
+			height: 32px;
+		}
+
+	.controlButton:hover {
+		cursor: pointer;
+	}
